@@ -45,7 +45,7 @@ Processed data used in this study can be accessed at []. For raw data, please co
 
 ## Visual feature atlas explorer
 
-A [Google Colab](https://colab.research.google.com/drive/1DOt-KBKAFenmBIaDJ763ARsAvo8HDFzc?usp=sharing) is available to explore the preferred images generated in this study.
+A [Google Colab notebook](https://colab.research.google.com/drive/1DOt-KBKAFenmBIaDJ763ARsAvo8HDFzc?usp=sharing) is available to explore the preferred images generated in this study.
 
 ## Contact
 
@@ -53,5 +53,5 @@ For questions regarding the study, please email stuart.trenholm@mcgill.ca or rud
 For specific questions regarding ANN model, please email blake.richards@mila.quebec
 
 <a href="http://www.trenholmlab.com/">
-<img src="https://raw.githubusercontent.com/ruditong/MouseFeatureLandscape/main/images/QR_trenholmlab.png?token=GHSAT0AAAAAACIKL5AEKY57YKVLR7Y64CEQZI4FQVQ" width="500" alt=""></img>
+<img src="https://raw.githubusercontent.com/ruditong/MouseFeatureLandscape/main/images/QR_trenholmlab.png?token=GHSAT0AAAAAACIKL5AEKY57YKVLR7Y64CEQZI4FQVQ" width="200" alt=""></img>
 </a>
