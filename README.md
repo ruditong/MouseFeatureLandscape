@@ -1,7 +1,7 @@
 # The feature landscape of Mouse Visual Cortex
 Analysis code and ANN models for LINK-TO-PAPER.
 
-## Analysis scripts (/analysis)
+## Analysis scripts (analysis/)
 
 - analyse_variance_validation.py: Analyse the response variance of neurons to own- vs other-stimuli (Figure 6)
 - analyse_wdf.py: Analyse population activity to own- vs other-stimuli (Figure 6)
@@ -27,7 +27,7 @@ Analysis code and ANN models for LINK-TO-PAPER.
 - utils.py: Various functions shared across scripts.
 - Figurex.ipynb: Jupyter notebooks to generate figures used in the paper.
 
-## ANN model scripts (/train)
+## ANN model scripts (train/)
 
 - calculate_noise_ceiling.py (obsolete): Calculate the noise ceiling to include only reliable neurons. Required for training ANN but thresholding is done separately now.
 - dataloader.py: Dataloader class for training ANN model.
@@ -45,4 +45,10 @@ Processed data used in this study can be accessed at []. For raw data, please co
 
 ## Visual feature atlas explorer
 
-A GUI is available to explore the preferred images generated in this study. (ADD COLAB BADGE)
+A [Google Colab](https://colab.research.google.com/drive/1DOt-KBKAFenmBIaDJ763ARsAvo8HDFzc?usp=sharing) is available to explore the preferred images generated in this study.
+
+## Contact
+
+For questions regarding the study, please email stuart.trenholm@mcgill.ca or rudi.tong@mcgill.ca
+For specific questions regarding ANN model, please email blake.richards@mila.quebec
+![]
