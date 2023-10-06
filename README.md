@@ -52,6 +52,6 @@ A [Google Colab notebook](https://colab.research.google.com/drive/1DOt-KBKAFenmB
 For questions regarding the study, please email stuart.trenholm@mcgill.ca or rudi.tong@mcgill.ca
 For specific questions regarding ANN model, please email blake.richards@mila.quebec
 
-![](/images/QR_trenholmlab.png)
+![](/images/QR_trenholmlab.png | width=200px)
 
 
