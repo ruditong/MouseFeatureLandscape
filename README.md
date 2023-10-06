@@ -54,6 +54,4 @@ For specific questions regarding ANN model, please email blake.richards@mila.que
 
 ![](/images/QR_trenholmlab.png)
 
-<a href="http://www.trenholmlab.com/">
-<img src="https://raw.githubusercontent.com/ruditong/MouseFeatureLandscape/main/images/QR_trenholmlab.png?token=GHSAT0AAAAAACIKL5AEKY57YKVLR7Y64CEQZI4FQVQ" width="200" alt=""></img>
-</a>
+
