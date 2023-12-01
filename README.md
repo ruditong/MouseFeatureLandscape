@@ -1,5 +1,5 @@
 # The feature landscape of Mouse Visual Cortex
-Analysis code and ANN models for LINK-TO-PAPER.
+Analysis code and ANN models for https://www.biorxiv.org/content/10.1101/2023.11.03.565500v1.
 
 ## Analysis scripts (analysis/)
 
