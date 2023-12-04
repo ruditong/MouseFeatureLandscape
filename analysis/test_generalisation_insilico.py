@@ -43,12 +43,38 @@ def embed_images(ims):
 if __name__ == '__main__':
     # Load images and embed
     regions = ['V1', 'LM', 'LI', 'POR', 'AL', 'RL']
-    fp_base = r'D:\Data\DeepMouse\Processed\Combined_raw'
-    fp_ims = r'D:\Data\DeepMouse\Results_raw\optstims\RF_aligned'
-    fp_nc = r'D:\Data\DeepMouse\Results_raw\noise_ceiling'
-    savepath = r'D:\Data\DeepMouse\Results_raw\generalisation'
+    fp_base = r'D:\Data\DeepMouse\Processed\Combined_full'
+    fp_ims = r'D:\Data\DeepMouse\Results\optstims\RF_aligned'
+    fp_ims_nat = r'D:\Data\Models\DNN_images_half.npy'
+    fp_nc = r'D:\Data\DeepMouse\Results\noise_ceiling'
+    savepath = r'D:\Data\DeepMouse\Results\generalisation'
     
-    # Load images
+    # # Load images
+    # for i, regioni in enumerate(regions):
+    #     print(f"Running {regioni}")
+    #     fp_conv = os.path.join(fp_base, regioni, f'{regioni}_shallowConv_4_untrained_e2e_16_DNN.pt')
+    #     fp_readout = os.path.join(fp_base, regioni, f'{regioni}_shallowConv_4_untrained_e2e_16_FactorizedReadout.pt') 
+        
+    #     predictions = load_performance(fp_nc, regioni)
+    #     DNN, readout = load_DNN(fp_conv, fp_readout, device='cuda:0', model_class='shallowConv_4', layer=16, pretrained=False, normalize=True, bias=True)
+    #     activations = {}
+    #     for j, regionj in enumerate(regions):
+    #         images = np.squeeze(np.load(os.path.join(fp_ims, f"optStim_masked_{regionj}.npy")))
+    #         # Embed 64x64 images into 135x135
+    #         images = embed_images(images)
+    #         dataset = SimpleImageNeuronDataset(images)
+    #         dataloader = DataLoader(dataset, batch_size=256)
+
+    #         activations[regionj] = main(DNN, readout, dataloader, predictions, thresh_pred=0.3, align_RFs=True, mean_RF=False, N=10, device='cuda:0')
+
+    #     np.save(os.path.join(savepath, f'cross_presentation_{regioni}.npy'), activations)
+
+    # del DNN
+    # del readout
+    # del images, dataset, dataloader
+
+    # Repeat the analysis for natural images
+    activations = {}
     for i, regioni in enumerate(regions):
         print(f"Running {regioni}")
         fp_conv = os.path.join(fp_base, regioni, f'{regioni}_shallowConv_4_untrained_e2e_16_DNN.pt')
@@ -56,15 +82,14 @@ if __name__ == '__main__':
         
         predictions = load_performance(fp_nc, regioni)
         DNN, readout = load_DNN(fp_conv, fp_readout, device='cuda:0', model_class='shallowConv_4', layer=16, pretrained=False, normalize=True, bias=True)
-        activations = {}
-        for j, regionj in enumerate(regions):
-            images = np.squeeze(np.load(os.path.join(fp_ims, f"optStim_masked_{regionj}.npy")))
-            # Embed 64x64 images into 135x135
-            images = embed_images(images)
-            dataset = SimpleImageNeuronDataset(images)
-            dataloader = DataLoader(dataset, batch_size=256)
 
-            activations[regionj] = main(DNN, readout, dataloader, predictions, thresh_pred=0.3, align_RFs=True, mean_RF=False, N=10, device='cuda:0')
+        images = np.squeeze(np.load(os.path.join(fp_ims, f"natStim_masked_{regioni}.npy")))
+        # Embed 64x64 images into 135x135
+        images = embed_images(images)
 
-        np.save(os.path.join(savepath, f'cross_presentation_{regioni}.npy'), activations)
+        dataset = SimpleImageNeuronDataset(images)
+        dataloader = DataLoader(dataset, batch_size=256)
 
+        activations[regioni] = main(DNN, readout, dataloader, predictions, thresh_pred=0.3, align_RFs=True, mean_RF=False, N=10, device='cuda:0')
+
+    np.save(os.path.join(savepath, f'natural_presentation2.npy'), activations)

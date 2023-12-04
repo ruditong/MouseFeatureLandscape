@@ -96,8 +96,8 @@ if __name__ == '__main__':
     fp_vid = r'F:\DeepMouse\RT_114\wdf\20230804\wdf\wdf_000_000.mj2'
     fp_log = r'F:\DeepMouse\RT_114\wdf\20230804\wdf\20230804-133250_log.txt'
 
-    index = [6,7,9,11,8,3]
-    #index = [5,8,11,12,9,7]
+    #index = [6,7,9,11,8,3]
+    index = [5,8,11,12,9,7]
     T = 2
     fr = 10
 

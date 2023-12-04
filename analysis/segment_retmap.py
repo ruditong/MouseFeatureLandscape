@@ -109,17 +109,17 @@ def segment_map(sign_map):
     for i in range(patch_i):
         curr_patch = np.zeros_like(patches)
         curr_patch[patches == i+1] = 1
-        patch_map += binary_erosion(binary_closing(curr_patch, iterations=1), iterations=2).astype(np.int) * (i+1)
+        patch_map += binary_erosion(binary_closing(curr_patch, iterations=1), iterations=4).astype(np.int) * (i+1)
 
     return patch_map
 
 if __name__ == '__main__':
     # Filepaths and parameters
-    savepath = r'F:\DeepMouse\RT_117\wdf\20230802\wdf'
-    fps = [r'F:\DeepMouse\RT_117\wdf\20230802\wdf\wdf_000_a11.mj2',
-           r'F:\DeepMouse\RT_117\wdf\20230802\wdf\wdf_000_a12.mj2',
-           r'F:\DeepMouse\RT_117\wdf\20230802\wdf\wdf_000_e11.mj2',
-           r'F:\DeepMouse\RT_117\wdf\20230802\wdf\wdf_000_e12.mj2']    # a11, a12, e11, e12
+    savepath = r'F:\DeepMouse\RT_114\wdf\20230804\wdf'
+    fps = [r'F:\DeepMouse\RT_114\wdf\20230804\wdf\wdf_000_a11.mj2',
+           r'F:\DeepMouse\RT_114\wdf\20230804\wdf\wdf_000_a12.mj2',
+           r'F:\DeepMouse\RT_114\wdf\20230804\wdf\wdf_000_e11.mj2',
+           r'F:\DeepMouse\RT_114\wdf\20230804\wdf\wdf_000_e12.mj2']    # a11, a12, e11, e12
     fr = 10
     nrep = 10
     timetot = [280,280,170,170]

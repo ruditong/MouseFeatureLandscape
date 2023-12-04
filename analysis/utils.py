@@ -62,6 +62,8 @@ class SimpleImageNeuronDataset(torch.utils.data.Dataset):
         
         all_images = np.squeeze(all_images)
         im_mean, im_std = np.mean(all_images), np.std(all_images)
+        im_mean = 0.5
+        im_std = 0.1
         return all_images, im_mean, im_std
     
 def load_DNN(fp_conv, fp_readout, device='cpu', model_class='shallowConv_4', layer=16, pretrained=False, normalize=True, bias=True):
@@ -465,3 +467,11 @@ def plot_stats(stats, regions, figsize=(6,5)):
     ax.yaxis.set_ticks_position('none')
 
     return fig
+
+def subsample(X, N):
+    '''Yield indices for random subsets of rows and columns'''
+    idx_i, idx_j = np.arange(X.shape[0]), np.arange(X.shape[1])
+    for i in range(N):
+        np.random.shuffle(idx_i)
+        np.random.shuffle(idx_j)
+        yield (idx_i, idx_j)
